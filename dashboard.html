@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Tracker</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script type="module" src="js/auth.js"></script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <section class="top-bar">
+            <div class="topbar-left top-text">Task Tracker</div>
+
+            <div class="topbar-right">
+                <div class="user-icon" id="first-letter">S</div>
+                <div class="top-text" id="welcome-username">User</div>
+            </div>
+        </section>
+
+        <section class="welcome">
+            <span id="time-of-day">Good Morning</span>,
+            <span id="username">User</span>
+        </section>
+
+    </header>
+
+
+    <main>
+
+        <section class="summary">
+
+            <div class="summary-item">
+                <img src="images/list.svg" alt="Total tasks">
+                <div>
+                    Total Tasks
+                    <span class="count" id="total-task-count">0</span>
+                </div>
+            </div>
+
+            <div class="summary-item">
+                <img src="images/completed.svg" alt="Completed tasks">
+                <div>
+                    Completed
+                    <span class="count" id="completed-task-count">0</span>
+                </div>
+            </div>
+
+            <div class="summary-item">
+                <img src="images/pending.svg" alt="Pending tasks">
+                <div>
+                    Pending
+                    <span class="count" id="pending-task-count">0</span>
+                </div>
+            </div>
+
+            <div class="summary-item">
+                <img src="images/overdue.svg" alt="Overdue tasks">
+                <div>
+                    Overdue
+                    <span class="count" id="overdue-task-count">0</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="main">
+
+            <section class="main-top-row">
+                <div class="main-rows">
+                    <h2>My Tasks</h2>
+                    <button id="add-new-task">+ Add New Task</button>
+                </div>
+            </section>
+
+
+            <section class="main-rows task-progress">
+
+                <div class="progress-header">
+                    <h3>Overall Progress</h3>
+                    <span id="progress-text">0%</span>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+
+            </section>
+
+
+            <section class="main-rows filters-search">
+
+                <form id="form">
+
+                    <div class="form-item search-bar">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search tasks..."
+                        >
+                    </div>
+
+                    <div class="form-item">
+                        <select id="status-filter" name="status">
+                            <option value="" disabled selected>Status</option>
+                            <option value="all">All</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Overdue">Overdue</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <select id="priority-filter" name="priority">
+                            <option value="" disabled selected>Priority</option>
+                            <option value="all">All</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <button type="reset" id="reset-button">
+                            Reset Filters
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            
+            <section class="task-list-section">
+
+                <div class="task-list-header">
+                    <h3>All Tasks</h3>
+                    <span id="task-list-count">0 Tasks</span>
+                </div>
+
+                <div class="task-list" id="task-list">
+                </div>
+
+            </section>
+
+        </section>
+        
+    </main>
+    
+
+<div class="task-form-container" id="task-form-container">
+
+    <form id="task-form">
+
+        <h2 id="form-title">Add New Task</h2>
+
+        <input type="hidden" id="task-id">
+
+        <label for="task-title">Task Title</label>
+        <input type="text" id="task-title" placeholder="Enter task title" required>
+
+        <label for="task-description">Description</label>
+        <textarea id="task-description" placeholder="Enter task description"></textarea>
+
+        <label for="task-priority">Priority</label>
+        <select id="task-priority" required>
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+        </select>
+
+        <label for="task-status">Status</label>
+        <select id="task-status">
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+        <label for="task-date">Due Date</label>
+        <input type="date" id="task-date" required>
+
+        <div class="form-buttons">
+            <button type="button" id="cancel-task">Cancel</button>
+            <button type="submit" id="save-task">Save Task</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

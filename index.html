@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Tracker Login</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+    <script type="module" src="js/auth.js"></script>
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Welcome Back!</h1>
+        <p class="subtitle">Login to your account</p>
+
+        <form id="login-form" method="post">
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="toggle-password"
+                        class="toggle-password"
+                        aria-label="Show password"
+                        aria-pressed="false"
+                        
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#" id="forgot-password">
+                        Forgot Password?
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Password reset message -->
+            <p id="reset-message" role="status" aria-live="polite"></p>
+
+            <!-- Login button -->
+            <button class="btn" type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Login message -->
+        <p id="login-message" role="status" aria-live="polite"></p>
+
+        <!-- Signup link -->
+        <p class="form-footer">
+            Don't have an account?
+            <a href="signup.html">Sign up</a>
+        </p>
+
+    </main>
+
+</body>
+</html>
